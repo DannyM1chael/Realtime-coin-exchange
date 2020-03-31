@@ -14,16 +14,16 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(rank, name, price, marketcap, change) {
-  return { rank, name, price, marketcap, change };
-}
+// function createData(rank, name, price, marketcap, change) {
+//   return { rank, name, price, marketcap, change };
+// }
 
-const rows = [
-  createData(1, 'Bitcoin', 6230.41, 113.97, 0.44),
-  createData(1, 'Bitcoin', 6230.41, 113.97, 0.44),
-  createData(1, 'Bitcoin', 6230.41, 113.97, 0.44),
-  createData(1, 'Bitcoin', 6230.41, 113.97, 0.44)
-];
+// const rows = [
+//   createData(1, 'Bitcoin', 6230.41, 113.97, 0.44),
+//   createData(1, 'Bitcoin', 6230.41, 113.97, 0.44),
+//   createData(1, 'Bitcoin', 6230.41, 113.97, 0.44),
+//   createData(1, 'Bitcoin', 6230.41, 113.97, 0.44)
+// ];
 
 export default function SimpleTable({data}) {
   const classes = useStyles();
@@ -36,19 +36,19 @@ export default function SimpleTable({data}) {
             <TableCell>Rank</TableCell>
             <TableCell align="right">Name</TableCell>
             <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Market Cap</TableCell>
+            <TableCell align="right">Volume</TableCell>
             <TableCell align="right">Change(24Hr)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {data.map((row, index) => (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {index + 1}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.marketcap}</TableCell>
+              <TableCell align="right">{row[0]}</TableCell>
+              <TableCell align="right">{row[1]}</TableCell>
+              <TableCell align="right">{row.volume}</TableCell>
               <TableCell align="right">{row.change}</TableCell>
             </TableRow>
           ))}

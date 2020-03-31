@@ -18,7 +18,7 @@ function App() {
   
     ws.onmessage = e => {
       const rates = JSON.parse(e.data);
-      setData(rates)
+      setData(Object.entries(rates))
     };
   
     return () => ws.close()
