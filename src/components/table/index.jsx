@@ -25,7 +25,7 @@ const rows = [
   createData(1, 'Bitcoin', 6230.41, 113.97, 0.44)
 ];
 
-export default function SimpleTable() {
+export default function SimpleTable({data}) {
   const classes = useStyles();
 
   return (
@@ -41,10 +41,10 @@ export default function SimpleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.rank}>
+          {rows.map((row, index) => (
+            <TableRow key={index}>
               <TableCell component="th" scope="row">
-                {row.rank}
+                {index + 1}
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
